@@ -24,7 +24,7 @@ public:
 			return { true, 3, 0 };
 		}
 
-		return { false, checkStrikes(input), 0};
+		return { false, checkStrikes(input), checkBalls(input)};
 	}
 	bool isDuplicateNum(string input)
 	{
@@ -55,6 +55,27 @@ public:
 		{
 			if (input[i] != answer[i]) continue;
 			ret++;
+		}
+		return ret;
+	}
+	int checkBalls(string input)
+	{
+		int ret = 0;
+		for (int i = 0; i < input.size(); i++)
+		{
+			int cur = i;
+			int mod = input.size();
+			
+			while (1)
+			{
+				cur++;
+				if (cur % mod == i) break;
+				if (input[i] == answer[cur % mod])
+				{
+					ret++;
+					break;
+				}
+			}
 		}
 		return ret;
 	}

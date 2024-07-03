@@ -46,3 +46,12 @@ TEST_F(BaseballFixture, ThrowExceptionWhenInput2Strikes0Ball)
 	EXPECT_EQ(2, result.strikes);
 	EXPECT_EQ(0, result.balls);
 }
+
+TEST_F(BaseballFixture, ThrowExceptionWhenInput1Strikes2Ball)
+{
+	GuessResult result = game.guess("132");
+
+	EXPECT_TRUE(result.solved == false);
+	EXPECT_EQ(1, result.strikes);
+	EXPECT_EQ(2, result.balls);
+}
