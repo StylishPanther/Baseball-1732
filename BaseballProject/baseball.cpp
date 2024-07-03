@@ -23,7 +23,8 @@ public:
 		{
 			return { true, 3, 0 };
 		}
-		return { false, 0, 0 };
+
+		return { false, checkStrikes(input), 0};
 	}
 	bool isDuplicateNum(string input)
 	{
@@ -47,6 +48,17 @@ public:
 			throw invalid_argument("It is not allowed to have the same number\n");
 		}
 	}
+	int checkStrikes(string input)
+	{
+		int ret = 0;
+		for (int i = 0; i < input.size(); i++)
+		{
+			if (input[i] != answer[i]) continue;
+			ret++;
+		}
+		return ret;
+	}
+	
 private:
 	string answer = "";
 };
