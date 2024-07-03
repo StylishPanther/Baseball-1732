@@ -20,8 +20,9 @@ public:
 	}
 };
 
-TEST_F(BaseballFixture, ThrowExceptionWhenInput) 
+TEST_F(BaseballFixture, ThrowExceptionWhenInputInvalid) 
 {
 	assertIllegalArgument("12");
 	assertIllegalArgument("12s");
+	assertIllegalArgument("121");
 }
