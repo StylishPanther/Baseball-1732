@@ -1,12 +1,29 @@
 #include <string>
 #include <stdexcept>
 using namespace std;
+
+typedef struct GuessResult_t
+{
+	bool solved;
+	int strikes;
+	int balls;
+}GuessResult;
+
 class Baseball
 {
 public:
-	void guess(string input)
+	explicit Baseball(const string& input) :answer{input}
+	{
+
+	}
+	GuessResult guess(string input)
 	{
 		isIllegalArgument(input);
+		if (input == answer)
+		{
+			return { true, 3, 0 };
+		}
+		return { false, 0, 0 };
 	}
 	bool isDuplicateNum(string input)
 	{
@@ -31,5 +48,5 @@ public:
 		}
 	}
 private:
-
+	string answer = "";
 };
